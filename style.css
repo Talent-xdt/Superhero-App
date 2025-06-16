@@ -1,23 +1,355 @@
-.gallery img
-{width: 100;}
+/* Avengers App CSS - High Quality Design with LED Effects */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navigation Menu */
 #menu {
-    width: 100;
-    height: 40px;
-    background-color: cornflowerblue;
-    padding-top: 12px;
+    background: linear-gradient(45deg, #000000, #1a1a2e, #0f3460);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);
+    border-bottom: 2px solid #6b9aff;
+    position: relative;
 }
 
-#menu a{
-    color: #ffff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+#menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 107, 107, 0.1),
+            rgba(74, 144, 226, 0.1),
+            rgba(255, 193, 7, 0.1),
+            transparent);
+    animation: heroGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#menu a {
+    color: #ffffff;
     text-decoration: none;
-    font-weight: 800;
+    margin: 0 30px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+    background: linear-gradient(45deg, #ff6b6b, #4a90e2);
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
 
-    padding-left: 20px;
-    padding-right: 20px;
+    /* LED Light Shadow Effect */
+    box-shadow:
+        0 0 10px rgba(255, 107, 107, 0.6),
+        0 0 20px rgba(255, 107, 107, 0.4),
+        0 0 30px rgba(255, 107, 107, 0.2),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
 }
-#menu :hover{
-    color: #5077bd;
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
+
+#menu a:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 0 20px rgba(255, 107, 107, 0.8),
+        0 0 40px rgba(255, 107, 107, 0.6),
+        0 0 60px rgba(255, 107, 107, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Gallery Section */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery a {
+    display: block;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position:relative;
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+
+    /* LED Shadow for Gallery Items */
+    box-shadow:
+        0 0 15px rgba(74, 144, 226, 0.5),
+        0 0 30px rgba(74, 144, 226, 0.3),
+        0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.gallery a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg,
+            rgba(255, 107, 107, 0.1),
+            rgba(74, 144, 226, 0.1),
+            rgba(255, 193, 7, 0.1),
+            rgba(139, 69, 19, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.gallery a:hover::before {
+    opacity: 1;
+}
+
+.gallery a:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow:
+        0 0 25px rgba(74, 144, 226, 0.8),
+        0 0 50px rgba(74, 144, 226, 0.6),
+        0 0 75px rgba(74, 144, 226, 0.4),
+        0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.gallery img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.gallery a:hover img {
+    filter: brightness(1.2) contrast(1.1);
+}
+
+/* Character Detail Pages */
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 30px 0;
+    background: linear-gradient(45deg, #ff6b6b, #4a90e2, #ffc107);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% {
+        filter: brightness(1);
+    }
+
+    100% {
+        filter: brightness(1.3);
+    }
+}
+
+h4 {
+    color: #ffc107;
+    font-size: 1.3em;
+    margin: 20px 0 10px 0;
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #e0e0e0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+p b {
+    color: #4a90e2;
+    text-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+/* Character Stats Styling */
+p:contains("Intelligence"),
+p:contains("Strength"),
+p:contains("Speed"),
+p:contains("Durability"),
+p:contains("Power"),
+p:contains("Combat") {
+    background: linear-gradient(90deg,
+            rgba(255, 107, 107, 0.1),
+            rgba(74, 144, 226, 0.1));
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-left: 3px solid #ff6b6b;
+    margin: 5px auto;
+    max-width: 300px;
+}
+
+/* Home Button */
+a[href="index.html"] {
+    display: inline-block;
+    margin: 30px auto;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff6b6b, #4a90e2);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+
+    /* LED Button Effect */
+    box-shadow:
+        0 0 15px rgba(255, 107, 107, 0.6),
+        0 0 30px rgba(255, 107, 107, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+a[href="index.html"]:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 25px rgba(255, 107, 107, 0.8),
+        0 0 50px rgba(255, 107, 107, 0.6),
+        0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Character Detail Gallery */
+.gallery img[src*="Iron Man"] {
+    border: 3px solid #ff6b6b;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #menu a {
+        display: block;
+        margin: 10px auto;
+        max-width: 200px;
+    }
+
+    .gallery {
+        flex-direction: column;
+        padding: 30px 10px;
+    }
+
+    .gallery img {
+        width: 150px;
+        height: 225px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+        padding: 0 20px;
+    }
+}
+
+/* Additional Avengers Color Themes */
+.thor-theme {
+    border-color: #ffc107;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+}
+
+.hulk-theme {
+    border-color: #4caf50;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+}
+
+.captain-theme {
+    border-color: #2196f3;
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.6);
+}
+
+.widow-theme {
+    border-color: #000000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.hawkeye-theme {
+    border-color: #9c27b0;
+    box-shadow: 0 0 20px rgba(156, 39, 176, 0.6);
+}
+
+/* Particle Effect Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 107, 107, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(74, 144, 226, 0.3), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 193, 7, 0.3), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 107, 107, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: particleFloat 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-200px);
+    }
+}
+
+/* PAGES for Thor,Hulk.Iron man

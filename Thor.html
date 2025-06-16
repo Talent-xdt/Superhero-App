@@ -4,11 +4,325 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thor Odinson</title>
+    <style>
+        /* Thor Page Specific Styles - Add under <style> tag in head */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Thor Title with Lightning Effect */
+h2 {
+    font-size: 3em;
+    margin: 30px 0;
+    background: linear-gradient(45deg, #ffc107, #ffffff, #ffc107);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 
+        0 0 30px rgba(255, 193, 7, 0.8),
+        0 0 60px rgba(255, 193, 7, 0.6);
+    animation: thorTitleGlow 1.5s ease-in-out infinite alternate;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes thorTitleGlow {
+    0% { 
+        filter: brightness(1);
+        text-shadow: 
+            0 0 30px rgba(255, 193, 7, 0.8),
+            0 0 60px rgba(255, 193, 7, 0.6);
+    }
+    100% { 
+        filter: brightness(1.5);
+        text-shadow: 
+            0 0 40px rgba(255, 193, 7, 1),
+            0 0 80px rgba(255, 193, 7, 0.8),
+            0 0 120px rgba(255, 193, 7, 0.6);
+    }
+}
+
+/* Gallery Image - Thor's Lightning Aura */
+.gallery {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.gallery img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 4px solid #ffc107;
+    box-shadow: 
+        0 0 20px rgba(255, 193, 7, 0.8),
+        0 0 40px rgba(255, 193, 7, 0.6),
+        0 0 60px rgba(255, 193, 7, 0.4);
+    animation: thorLightning 2s ease-in-out infinite alternate;
+    transition: all 0.3s ease;
+}
+
+@keyframes thorLightning {
+    0% { 
+        box-shadow: 
+            0 0 20px rgba(255, 193, 7, 0.8),
+            0 0 40px rgba(255, 193, 7, 0.6),
+            0 0 60px rgba(255, 193, 7, 0.4);
+        transform: scale(1);
+    }
+    100% { 
+        box-shadow: 
+            0 0 30px rgba(255, 193, 7, 1),
+            0 0 60px rgba(255, 193, 7, 0.8),
+            0 0 90px rgba(255, 193, 7, 0.6);
+        transform: scale(1.02);
+    }
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 40px rgba(255, 193, 7, 1),
+        0 0 80px rgba(255, 193, 7, 0.8),
+        0 0 120px rgba(255, 193, 7, 0.6);
+}
+
+/* Bio and Power Stats Headers */
+h4 {
+    color: #ffc107;
+    font-size: 1.5em;
+    margin: 30px 0 15px 0;
+    text-shadow: 0 0 15px rgba(255, 193, 7, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Bio Information Styling */
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 12px auto;
+    color: #e0e0e0;
+    max-width: 500px;
+    background: linear-gradient(135deg, 
+        rgba(255, 193, 7, 0.15), 
+        rgba(255, 255, 255, 0.05)
+    );
+    padding: 12px 25px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
+    transition: all 0.3s ease;
+}
+
+p:hover {
+    background: linear-gradient(135deg, 
+        rgba(255, 193, 7, 0.25), 
+        rgba(255, 255, 255, 0.1)
+    );
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+    transform: translateY(-2px);
+}
+
+p b {
+    color: #ffc107;
+    text-shadow: 0 0 5px rgba(255, 193, 7, 0.6);
+    font-weight: bold;
+}
+
+/* Power Stats Special Styling */
+h4 + p, 
+h4 ~ p {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Power percentage bars */
+p:contains("Intelligence") { border-left: 4px solid #ff9800; }
+p:contains("Intelligence")::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 69%;
+    background: linear-gradient(90deg, rgba(255, 152, 0, 0.3), transparent);
+    z-index: -1;
+}
+
+p:contains("Strength") { border-left: 4px solid #f44336; }
+p:contains("Strength")::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(244, 67, 54, 0.3), transparent);
+    z-index: -1;
+}
+
+p:contains("Speed") { border-left: 4px solid #2196f3; }
+p:contains("Speed")::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 92%;
+    background: linear-gradient(90deg, rgba(33, 150, 243, 0.3), transparent);
+    z-index: -1;
+}
+
+p:contains("Durability") { border-left: 4px solid #4caf50; }
+p:contains("Durability")::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(76, 175, 80, 0.3), transparent);
+    z-index: -1;
+}
+
+p:contains("Power") { border-left: 4px solid #ffc107; }
+p:contains("Power")::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(255, 193, 7, 0.4), transparent);
+    z-index: -1;
+    animation: powerPulse 2s ease-in-out infinite;
+}
+
+@keyframes powerPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+p:contains("Combat") { border-left: 4px solid #9c27b0; }
+p:contains("Combat")::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 85%;
+    background: linear-gradient(90deg, rgba(156, 39, 176, 0.3), transparent);
+    z-index: -1;
+}
+
+/* Home Button - Mjolnir Style */
+a[href="index.html"] {
+    display: inline-block;
+    margin: 40px auto;
+    padding: 18px 35px;
+    background: linear-gradient(45deg, #ffc107, #ffffff, #ffc107);
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.1em;
+    transition: all 0.4s ease;
+    border: 2px solid #ffc107;
+    
+    /* Mjolnir LED Glow */
+    box-shadow: 
+        0 0 20px rgba(255, 193, 7, 0.8),
+        0 0 40px rgba(255, 193, 7, 0.6),
+        0 5px 20px rgba(0, 0, 0, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+a[href="index.html"]:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(45deg, #ffffff, #ffc107, #ffffff);
+    box-shadow: 
+        0 0 30px rgba(255, 193, 7, 1),
+        0 0 60px rgba(255, 193, 7, 0.8),
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: mjolnirPower 0.5s ease-in-out;
+}
+
+@keyframes mjolnirPower {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+}
+
+/* Lightning Background Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 25px 35px, rgba(255, 193, 7, 0.4), transparent),
+        radial-gradient(1px 1px at 60px 80px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 120px 45px, rgba(255, 193, 7, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 150px 150px;
+    animation: lightningFloat 15s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+@keyframes lightningFloat {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-150px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2.2em;
+    }
+    
+    .gallery img {
+        width: 600px;
+        height: 380px;
+    }
+    
+    p {
+        font-size: 1em;
+        padding: 10px 20px;
+        margin: 10px 20px;
+    }
+    
+    a[href="index.html"] {
+        padding: 15px 25px;
+        font-size: 1em;
+    }
+}
+    </style>
 </head>
 <body>
     <h2>Thor</h2>
     <div class="gallery">
-        <img src="images/avengers_01.jpg" alt="">
+        <img src="images/Thor.jpg" alt="">
     </div>
     <h4>Bio</h4>
     <p>Full Name: Thor Odinson</p> 
